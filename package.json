@@ -1,0 +1,16 @@
+{
+  "name": "swasthya-vault",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev -w apps/backend\" \"npm:dev -w apps/frontend\"",
+    "build": "npm run build -w apps/backend && npm run build -w apps/frontend",
+    "lint": "npm run lint -w apps/backend && npm run lint -w apps/frontend",
+    "test": "npm run test -w apps/backend && npm run test -w apps/frontend",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "prettier": "^3.2.5"
+  }
+}
